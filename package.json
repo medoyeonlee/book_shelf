@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server.ts",
-    "server": "ts-node-dev --inspect -- server/server.ts"
+    "server": "ts-node-dev --inspect -- server/server.ts",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "engines": {},
   "keywords": [],
@@ -19,6 +21,11 @@
     "@types/express": "^4.16.1",
     "@types/jsonwebtoken": "^8.3.2",
     "@types/mongoose": "^5.3.23",
+    "@types/react": "^16.8.8",
+    "@types/react-fontawesome": "^1.6.4",
+    "@types/react-redux": "^7.0.5",
+    "@types/react-router-dom": "^4.3.1",
+    "@types/redux-promise": "^0.5.28",
     "bcrypt": "^3.0.5",
     "body-parser": "^1.18.3",
     "concurrently": "^4.1.0",

@@ -107,7 +107,7 @@ app.get('/api/users',(req,res)=>{
 app.get('/api/user_posts',(req,res)=>{
     Book.find({ownerId:req.query.user}).exec((err,docs)=>{
         if(err) return res.status(400).send(err);
-        res.send(200)
+        res.send(docs)
     })
 })
 //post
@@ -129,8 +129,11 @@ app.post('/api/book',(req,res)=>{
 //유저 가입
 app.post('/api/register',(req,res)=>{
     const user = new User(req.body);
+
+    
     user.save((err,doc)=>{
-        if(err) return res.status(400).send(err);
+    
+        if(err) return res.json({success:false});
 
         res.status(200).json({
             success:true,
